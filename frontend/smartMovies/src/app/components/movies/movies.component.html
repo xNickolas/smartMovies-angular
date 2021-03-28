@@ -1,0 +1,22 @@
+<div class="listing">
+  <div class="row">
+    <div class="col-md-2 listing__items" *ngFor="let movie of movies | slice:0:12">
+      <div [routerLink]="['/movies/', movie.id]">
+        <div class="listing-item-style">
+            <img src="{{movie?.poster_path}}">
+            <h6>{{ movie?.title }}</h6>
+            <p class="overview"><span>{{movie?.overview}}</span></p>
+            <p class="rate">
+              <i class="material-icons">star</i>
+              <span>{{movie?.vote_average}}</span> /10
+            </p>
+            <p class="year">
+              <span>{{movie?.release_date | date: 'yyyy'}}</span>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <mat-paginator class="mat-paginator" [length]="totalResults" [pageSize]="10" (page)="changePage($event)"></mat-paginator>
+</div>
