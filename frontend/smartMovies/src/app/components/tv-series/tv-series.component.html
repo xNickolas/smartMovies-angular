@@ -1,0 +1,23 @@
+<div class="listing">
+  <div class="row">
+    <div class="col-md-2" *ngFor="let serie of series | slice:0:12">
+      <div [routerLink]="['/tv-series/', serie.id]">
+        <div class="listing-item-style">
+            <img src="{{serie?.poster_path}}">
+            <h6>{{ serie?.title }}</h6>
+            <p class="overview"><span>{{serie?.overview}}</span></p>
+            <p class="rate">
+              <i class="material-icons">star</i>
+              <span>{{serie?.vote_average}}</span> /10
+            </p>
+            <p class="year">
+              <span>{{serie?.release_date | date: 'yyyy'}}</span>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <mat-paginator [length]="totalResults" [pageSize]="10" (page)="changePage($event)"></mat-paginator>
+</div>
+
