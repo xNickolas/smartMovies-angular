@@ -1,37 +1,20 @@
+@import '../../assets//scss/variables';
+
 .home-page-container {
   width: 100%;
-  height: 100vh;
-}
-
-.home-header-container {
-  width: 100%;
-  height: 170px;
-  background-color: #ebebeb;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.header-title {
-  font-size: 2rem;
-}
-
-.header-discription {
-  font-size: 0.97rem;
-  opacity: 0.6;
+  height: 90vh;
 }
 
 .home-navigation {
   width: 100%;
-  height: 50px;
+  height: 35px;
   display: flex;
   justify-content: center;
 }
 
 .navigation-options {
   width: 100%;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
 }
@@ -39,16 +22,36 @@
 .navigation-options li {
   list-style-type: none;
   width: 100%;
+  height: 35px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  border-bottom: 1px solid #e4e4e4;
+
+  a {
+    color: $base-font-color;
+    font-weight: 500;
+  }
 }
 .navigation-options li:active {
-  border-top: 1px solid #c4c4c4;
-  border-left: 1px solid #c4c4c4;
-  border-right: 1px solid #c4c4c4;
+  background-color: #f8f8f8;
+  border-bottom: none;
+  border-top: 1px #f8f8f8;
+  border-left: 1px solid #e4e4e4;
+  border-right: 1px solid #e4e4e4;
   border-radius: 5px 5px 0px 0px;
+  box-shadow: inset 0px 10px 10px -16px #000000;
 }
 
 .navigation-options li a {
   text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.home-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8;
+  padding-top: 1rem;
 }

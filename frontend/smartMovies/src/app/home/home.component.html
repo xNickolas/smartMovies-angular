@@ -1,13 +1,41 @@
 <div class="home-page-container">
-  <div class="home-header-container">
-    <h2 class="header-title">Bem-vindo a Smart Movies</h2>
-    <p class="header-discription">Aqui você encontra o melhor conteúdo de filmes e séries</p>
+  <div class="banner">
+    <ng-container *ngFor="let slider of movies_data; let i = index">
+        <div class="slider" *ngIf="current == i" @fade>
+            <div class="backdrop">
+                <div class="lazyloaded">
+                    <img alt="{{slider?.title}}" class="lazyload image" src="https://image.tmdb.org/t/p/original/{{slider?.backdrop_path}}">
+                </div>
+            </div>
+            <div class="pane">
+                <div>
+                    <h1 class="name" [routerLink]="['/movies/', slider.id]">
+                        {{slider?.title}}
+                    </h1>
+                    <div class="meta">
+                        <div class="info">
+                            <span class="rate"><i class="material-icons">star</i><span>{{slider?.vote_average}}</span>/10</span>
+                            <span> {{slider?.vote_count }} Reviews</span>
+                            <span>{{slider?.release_date | date: 'yyyy' }}</span>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        {{slider?.overview }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
   </div>
 
   <div class="home-navigation">
     <ul class="navigation-options">
-      <li><a href="#">Filmes</a></li>
-      <li><a href="#">Séries</a></li>
+      <li><a href="/movies">Filmes</a></li>
+      <li><a href="/tv-series">Séries</a></li>
     </ul>
+  </div>
+
+  <div class="home-content-container">
+    <router-outlet></router-outlet>
   </div>
 </div>
