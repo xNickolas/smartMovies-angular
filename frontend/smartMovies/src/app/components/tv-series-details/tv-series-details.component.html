@@ -1,0 +1,78 @@
+<div class="container__Details">
+  <div class="backdrop-banner">
+    <div class="item-backdrop">
+      <img src="{{ serie?.backdrop_path }}">
+    </div>
+  </div>
+  <div class="row__Details">
+    <div class="left">
+      <div class="poster ml-5">
+        <img src="{{ serie?.poster_path }}">
+      </div>
+    </div>
+    <div class="right">
+      <div class="overview__Details">
+        <h2 class="title">{{ serie.name }}</h2>
+        <div>{{serie?.overview}}</div>
+      </div>
+      <div class="stats">
+        <ul class="nolist">
+          <li *ngIf="serie?.first_air_date">
+            <div class="label">
+                Primeiro ao ar
+            </div>
+            <div class="value">
+                {{serie?.first_air_date | date }}
+            </div>
+          </li>
+          <li *ngIf="serie?.genres.length">
+            <div class="label">
+              Gênero
+            </div>
+            <div class="comma_" *ngFor="let genre of serie?.genres | slice:0:1">
+                <a>{{ genre?.name }}</a>
+            </div>
+          </li>
+          <li *ngIf="serie?.number_of_seasons">
+            <div class="label">
+                Temporadas
+            </div>
+            <div class="value">
+                {{ serie?.number_of_seasons }}
+            </div>
+          </li>
+          <li *ngIf="serie?.episode_run_time">
+            <div class="label">
+                Duração
+            </div>
+            <div class="value">
+                {{ serie?.episode_run_time }}<span>min</span>
+            </div>
+          </li>
+          <li *ngIf="serie?.spoken_languages?.length">
+            <div class="label">
+              Idioma
+            </div>
+            <div class="value" *ngFor="let language of serie?.spoken_languages">
+                <a>{{ language?.name }}</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="return__btn">
+      <button type="click" [routerLink]="'/tv-series/'"><span>Voltar</span></button>
+    </div>
+  </div>
+  <div class="listing-cast">
+    <div class="listing__head">
+      <h2 class="listing__title">Elenco</h2>
+    </div>
+    <div class="listing-cast-item-style">
+      <!-- <img *ngIf="cast.profile_path" src="https://image.tmdb.org/t/p/w138_and_h175_face{{cast?.profile_path}}">
+      <img *ngIf="!cast.profile_path" src="assets/images/default-movie.png"> -->
+      <img  src="assets/images/default-movie.png">
+      <img  src="assets/images/default-movie.png">
+    </div>
+  </div>
+</div>
